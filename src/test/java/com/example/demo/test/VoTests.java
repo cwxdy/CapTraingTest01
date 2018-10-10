@@ -1,4 +1,4 @@
-package com.example.demo.test;
+﻿package com.example.demo.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,6 @@ public class VoTests {
 	}
 	
 	@Test
-	@Transactional
 	public void test01() {
 		/*StudentVO studentVO = new StudentVO();
 		studentVO.setStudentName("小明");
