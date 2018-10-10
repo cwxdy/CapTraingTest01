@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.StudentMapper">
+	<resultMap type="com.example.demo.bean.Student" id="studentResultMap">
+		<result column="student_id" property="studentId" jdbcType="VARCHAR" />
+		<result column="student_name" property="studentName" jdbcType="VARCHAR" />
+		<result column="student_age" property="studentAge" jdbcType="INTEGER" />
+		<!-- <association column="address_id" property="address" javaType="com.example.demo.bean.Address" select="com.example.demo.dao.AddressMapper.getAddressById"></association> -->
+		<result column="grade_id" property="gradeId" jdbcType="VARCHAR" />
+		<result column="address_id" property="addressId" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="getStudentList" resultMap="studentResultMap">
+		SELECT * FROM student
+	</select>
+	
+	<insert id="addStudent" parameterType="com.example.demo.bean.Student">
+		INSERT INTO student VALUES(#{studentId},#{studentName},#{studentAge},#{gradeId},#{addressId})
+	</insert>
+	
+	<delete id="deleteStudentById" parameterType="java.lang.String">
+		DELETE FROM student WHERE student_id = #{studentId}
+	</delete>
+	
+	<update id="updateStudent" parameterType="com.example.demo.bean.Student">
+		UPDATE student 
+		SET 
+		student_name = #{studentName}, student_age = #{studentAge}, grade_id = #{gradeId}, address_id = #{addressId} 
+		WHERE student_id = #{studentId}
+	</update>
+	
+	<select id="getStudentById" parameterType="java.lang.String" resultMap="studentResultMap">
+		SELECT * FROM student WHERE student_id = #{studentId}
+	</select>
+	
+	<select id="getStudentByGradeId" parameterType="java.lang.String" resultType="com.example.demo.bean.Student">
+		SELECT * FROM student WHERE grade_id
+	</select>
+</mapper>
