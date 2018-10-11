@@ -1,21 +1,23 @@
 package com.example.demo.bean;
 
+import com.example.demo.bean.Address;
+
 public class Student {
 	private String studentId;
 	private String studentName;
 	private Integer studentAge;
-	private String gradeId;
-	private String addressId;
+	private Address address;
+	private Grade grade;
 	public Student() {
 		super();
 	}
-	public Student(String studentId, String studentName, Integer studentAge, String gradeId, String addressId) {
+	public Student(String studentId, String studentName, Integer studentAge, Address address, Grade grade) {
 		super();
 		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentAge = studentAge;
-		this.gradeId = gradeId;
-		this.addressId = addressId;
+		this.address = address;
+		this.grade = grade;
 	}
 	public String getStudentId() {
 		return studentId;
@@ -35,22 +37,22 @@ public class Student {
 	public void setStudentAge(Integer studentAge) {
 		this.studentAge = studentAge;
 	}
-	public String getGradeId() {
-		return gradeId;
+	public Address getAddress() {
+		return address;
 	}
-	public void setGradeId(String gradeId) {
-		this.gradeId = gradeId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
-	public String getAddressId() {
-		return addressId;
+	public Grade getGrade() {
+		return grade;
 	}
-	public void setAddressId(String addressId) {
-		this.addressId = addressId;
+	public void setGrade(Grade grade) {
+		this.grade = grade;
 	}
 	@Override
 	public String toString() {
 		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentAge=" + studentAge
-				+ ", gradeId=" + gradeId + ", addressId=" + addressId + "]";
+				+ ", address=" + address + ", grade=" + grade + "]";
 	}
 	
 	

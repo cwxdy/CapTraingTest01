@@ -5,9 +5,8 @@
 		<result column="student_id" property="studentId" jdbcType="VARCHAR" />
 		<result column="student_name" property="studentName" jdbcType="VARCHAR" />
 		<result column="student_age" property="studentAge" jdbcType="INTEGER" />
-		<!-- <association column="address_id" property="address" javaType="com.example.demo.bean.Address" select="com.example.demo.dao.AddressMapper.getAddressById"></association> -->
-		<result column="grade_id" property="gradeId" jdbcType="VARCHAR" />
-		<result column="address_id" property="addressId" jdbcType="VARCHAR" />
+		<association column="address_id" property="address" javaType="com.example.demo.bean.Address" select="com.example.demo.dao.AddressMapper.getAddressById"></association>
+		<association column="grade_id" property="grade" javaType="com.example.demo.bean.Grade" select="com.example.demo.dao.GradeMapper.getGradeById"></association>
 	</resultMap>
 	
 	<select id="getStudentList" resultMap="studentResultMap">
@@ -15,7 +14,9 @@
 	</select>
 	
 	<insert id="addStudent" parameterType="com.example.demo.bean.Student">
-		INSERT INTO student VALUES(#{studentId},#{studentName},#{studentAge},#{gradeId},#{addressId})
+		INSERT INTO 
+		student(student_id,student_name,student_age,address_id,grade_id) 
+		VALUES(#{studentId},#{studentName},#{studentAge},#{address.addressId},#{grade.gradeId})
 	</insert>
 	
 	<delete id="deleteStudentById" parameterType="java.lang.String">
@@ -25,7 +26,7 @@
 	<update id="updateStudent" parameterType="com.example.demo.bean.Student">
 		UPDATE student 
 		SET 
-		student_name = #{studentName}, student_age = #{studentAge}, grade_id = #{gradeId}, address_id = #{addressId} 
+		student_name = #{studentName}, student_age = #{studentAge}, address_id = #{address.addressId}, grade_id = #{grade.gradeId}
 		WHERE student_id = #{studentId}
 	</update>
 	
@@ -33,7 +34,14 @@
 		SELECT * FROM student WHERE student_id = #{studentId}
 	</select>
 	
-	<select id="getStudentByGradeId" parameterType="java.lang.String" resultType="com.example.demo.bean.Student">
-		SELECT * FROM student WHERE grade_id
+	<select id="getStudentListByGradeId" parameterType="java.lang.String" resultMap="studentResultMap">
+		SELECT * FROM student WHERE grade_id = #{gradeId}
+	</select>
+	
+	
+	<select id="getStudent" parameterType="com.example.demo.bean.Student" resultMap="studentResultMap">
+		SELECT * FROM student WHERE 1 =1 
+		<if test="studentName != null and studentName != ''"> AND student_name = #{studentName}</if>
+		<if test="studentAge != null and studentAge != 0"> AND student_age = #{studentAge}</if>
 	</select>
 </mapper>

@@ -33,4 +33,9 @@
 			#{addressId}
 		</foreach>
 	</delete>
+	
+	<select id="getAddressByName" parameterType="java.lang.String" resultMap="addressResultMap">
+		SELECT * FROM address WHERE address_name = #{addressName}
+	</select>
+	
 </mapper>

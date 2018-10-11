@@ -10,22 +10,20 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.bean.vo.GradeVO;
-import com.example.demo.bean.vo.StudentVO;
 import com.example.demo.dao.AddressMapper;
-import com.example.demo.dao.GradeVOMapper;
-import com.example.demo.dao.StudentVOMapper;
+import com.example.demo.dao.GradeMapper;
+import com.example.demo.dao.StudentMapper;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 //@Transactional
 public class VoTests {
 	
-	@Autowired
-	StudentVOMapper studentVOMapper;
+	/*@Autowired
+	StudentMapper studentVOMapper;
 	
 	@Autowired
-	GradeVOMapper gradeVOMapper;
+	GradeMapper gradeVOMapper;
 	
 	@Autowired
 	AddressMapper addressMapper;
@@ -44,7 +42,7 @@ public class VoTests {
 	
 	@Test
 	public void test01() {
-		/*StudentVO studentVO = new StudentVO();
+		StudentVO studentVO = new StudentVO();
 		studentVO.setStudentName("小明");
 		studentVO.setStudentAge(12);
 		List<StudentVO> searcheResultList = studentVOMapper.getStudent(studentVO);
@@ -54,7 +52,7 @@ public class VoTests {
 		for (StudentVO studentVO2 : searcheResultList) {
 			System.out.println(studentVO2.getAddress().getAddressName());
 			
-		}*/
+		}
 		
 		List<String> deleteIdList = new ArrayList<>();
 		deleteIdList.add("555");
@@ -77,5 +75,5 @@ public class VoTests {
 	
 	public List<GradeVO> getGradeList() {
 		return gradeVOMapper.getGradeList();
-	}
+	}*/
 }

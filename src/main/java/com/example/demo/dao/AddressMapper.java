@@ -17,4 +17,6 @@ public interface AddressMapper {
 	List<Address> getAddressList();
 	
 	void deleteAddressListById(List<String> addressIdList);
+	
+	Address getAddressByName(String addressName);
 }

@@ -4,7 +4,7 @@
 	<resultMap type="com.example.demo.bean.Grade" id="gradeResultMap">
 		<result column="grade_id" property="gradeId" jdbcType="VARCHAR" />
 		<result column="grade_name" property="gradeName" jdbcType="VARCHAR" />
-<!-- 		<collection column="grade_id" property="students" select=""></collection> -->
+		<collection column="grade_id" property="students" select="com.example.demo.dao.StudentMapper.getStudentListByGradeId"></collection>
 	</resultMap>
 	
 	<insert id="addGrade" parameterType="com.example.demo.bean.Grade">
@@ -15,11 +15,11 @@
 		UPDATE grade SET grade_name = #{gradeName} WHERE grade_id = #{gradeId}
 	</update>
 	
-	<delete id="deleteGradeById" parameterType="com.example.demo.bean.Grade">
+	<delete id="deleteGradeById" parameterType="java.lang.String">
 		DELETE FROM grade WHERE grade_id = #{gradeId}
 	</delete>
 	
-	<select id="getGradeById" resultMap="gradeResultMap">
+	<select id="getGradeById" parameterType="java.lang.String" resultMap="gradeResultMap">
 		SELECT * FROM grade WHERE grade_id = #{gradeId}
 	</select>
 	

@@ -15,5 +15,12 @@ public interface StudentMapper {
 	
 	Student getStudentById(String studentId);
 	
-	Student getStudentByGradeId(String gradeId);
+	/**
+	 * 获取学生列表
+	 * @param gradeId 年级id
+	 * @return
+	 */
+	List<Student> getStudentListByGradeId(String gradeId);
+	
+	List<Student> getStudent(Student student);
 }

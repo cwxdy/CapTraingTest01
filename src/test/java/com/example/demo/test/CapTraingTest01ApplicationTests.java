@@ -19,7 +19,7 @@ import com.example.demo.dao.StudentMapper;
 @SpringBootTest
 public class CapTraingTest01ApplicationTests {
 
-	@Autowired
+	/*@Autowired
 	StudentMapper studentMapper;
 	
 	@Autowired
@@ -87,7 +87,7 @@ public class CapTraingTest01ApplicationTests {
 //		System.out.println(getAddressList());
 	}
 	
-	/*学生CRUD*/
+	学生CRUD
 	public void addStudent(Student student) {
 		studentMapper.addStudent(student);
 	}
@@ -109,7 +109,7 @@ public class CapTraingTest01ApplicationTests {
 	}
 	
 	
-	/*年级CRUD*/
+	年级CRUD
 	public void addGrade(Grade grade) {
 		gradeMapper.addGrade(grade);
 	}
@@ -131,7 +131,7 @@ public class CapTraingTest01ApplicationTests {
 	}
 	
 	
-	/*地址CRUD*/
+	地址CRUD
 	public void addAddress(Address address) {
 		addressMapper.addAddress(address);
 	}
@@ -150,6 +150,6 @@ public class CapTraingTest01ApplicationTests {
 	
 	public List<Address> getAddressList() {
 		return addressMapper.getAddressList();
-	}
+	}*/
 
 }
